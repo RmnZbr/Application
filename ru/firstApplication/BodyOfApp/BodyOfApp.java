@@ -51,14 +51,17 @@ public class BodyOfApp {
 
         SuggestionToContinue suggestionToContinue = new SuggestionToContinue();
         suggestionToContinue.displaySuggestion();
+
         userInput = consoleInput.acceptUserInput();
         ParsingUserSuggestion parsingUserSuggestion = new ParsingUserSuggestion(userInput);
-        if (parsingUserSuggestion.suggestion) {
+        while (!parsingUserSuggestion.isSuggestion()) {
+            System.out.println("Вы ввели недопустимую команду, ответьте yes или no");
+        }
+        if (userInput.contains("yes") || userInput.contains("y")) {
             mainBodyOfApp();
         }
-        else {
+        if (userInput.contains("no") || userInput.contains("n")) {
             Exit exit = new Exit();
-            exit.exit();
         }
     }
 }

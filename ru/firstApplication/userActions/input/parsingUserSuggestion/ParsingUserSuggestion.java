@@ -3,10 +3,15 @@ package ru.firstApplication.userActions.input.parsingUserSuggestion;
 public class ParsingUserSuggestion {
 
     public ParsingUserSuggestion(String userInput) {
-        this.suggestion = parsingSuggestion(userInput);
+        this.isSuggestion = parsingSuggestion(userInput);
     }
 
-    public boolean suggestion;
+    private boolean isSuggestion;
+
+    public boolean isSuggestion() {
+        return isSuggestion;
+    }
+
 
     private boolean parsingSuggestion(String userInput) {
 
@@ -17,10 +22,10 @@ public class ParsingUserSuggestion {
             return true;
         }
         if (userInput.contains("no")) {
-            return false;
+            return true;
         }
         if (userInput.contains("n")) {
-            return false;
+            return true;
         }
 
         return false;
